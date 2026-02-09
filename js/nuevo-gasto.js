@@ -86,13 +86,14 @@ btnAddCategoria.addEventListener("click", () => {
 
 btnAddSubcategoria.addEventListener("click", () => {
     if (!gastoCategoria.value) {
-        alerta("Primero selecciona una categoría.");
+        mostrarMensaje("Primero selecciona una categoría.", "warning");
         return;
     }
 
     nuevaSubcategoriaNombre.value = "";
     modalSubcategoria.style.display = "flex";
 });
+
 
 
 
@@ -127,8 +128,9 @@ window.addEventListener("click", (e) => {
 
 guardarNuevaCategoria.addEventListener("click", () => {
     const nombre = nuevaCategoriaNombre.value.trim();
+
     if (campoVacio(nombre)) {
-        alerta("Debes ingresar un nombre para la categoría.");
+        mostrarMensaje("Debes ingresar un nombre para la categoría.", "warning");
         return;
     }
 
@@ -145,7 +147,10 @@ guardarNuevaCategoria.addEventListener("click", () => {
     cargarCategorias();
     gastoCategoria.value = nueva.id;
     cargarSubcategorias();
+
+    mostrarMensaje("Categoría creada correctamente.", "success");
 });
+
 
 
 
@@ -155,8 +160,9 @@ guardarNuevaCategoria.addEventListener("click", () => {
 
 guardarNuevaSubcategoria.addEventListener("click", () => {
     const nombre = nuevaSubcategoriaNombre.value.trim();
+
     if (campoVacio(nombre)) {
-        alerta("Debes ingresar un nombre para la subcategoría.");
+        mostrarMensaje("Debes ingresar un nombre para la subcategoría.", "warning");
         return;
     }
 
@@ -175,7 +181,10 @@ guardarNuevaSubcategoria.addEventListener("click", () => {
     modalSubcategoria.style.display = "none";
     cargarSubcategorias();
     gastoSubcategoria.value = nueva.id;
+
+    mostrarMensaje("Subcategoría creada correctamente.", "success");
 });
+
 
 
 
@@ -247,15 +256,16 @@ guardarGasto.addEventListener("click", () => {
     const error = validarGasto(data);
 
     if (error) {
-        alerta(error);
+        mostrarMensaje(error, "warning");
         return;
     }
 
     guardarGastoLS(data);
 
-    alerta("Gasto registrado correctamente.");
+    mostrarMensaje("Gasto registrado correctamente.", "success");
     window.location.href = "gastos.html";
 });
+
 
 
 
