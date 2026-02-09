@@ -48,14 +48,14 @@ btnLogin.addEventListener("click", () => {
     const clave = inputClave.value.trim();
 
     if (campoVacio(usuario) || campoVacio(clave)) {
-        alerta("Debes ingresar usuario y contraseña.");
+        mostrarMensaje("Faltan datos por completar.", "warning");
         return;
     }
 
     const resultado = validarLogin(usuario, clave);
 
     if (!resultado) {
-        alerta("Usuario o contraseña incorrectos.");
+        mostrarMensaje("Usuario o contraseña incorrectos.", "error");
         return;
     }
 
@@ -81,11 +81,17 @@ registroConfirmar.addEventListener("click", () => {
     const nombre = registroNombre.value.trim();
     const clave = registroClave.value.trim();
 
+    if (campoVacio(nombre) || campoVacio(clave)) {
+        mostrarMensaje("Completa todos los campos.", "warning");
+        return;
+    }
+
     if (crearUsuario(nombre, clave)) {
-        alerta("Usuario creado correctamente.");
+        mostrarMensaje("Usuario creado correctamente.", "success");
         cerrarModalRegistro();
     }
 });
+
 
 registroCancelar.addEventListener("click", cerrarModalRegistro);
 

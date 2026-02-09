@@ -156,3 +156,33 @@ function toggleStat(card) {
 function toggleFold(card) {
     card.classList.toggle("open");
 }
+
+
+function mostrarMensaje(texto, tipo = "success", tiempo = 2500) {
+    const toast = document.getElementById("toast");
+    const icon = document.getElementById("toastIcon");
+    const text = document.getElementById("toastText");
+
+    // Iconos según tipo
+    const iconos = {
+        success: "✔",
+        error: "✖",
+        warning: "⚠"
+    };
+
+    // Reset
+    toast.className = "toast";
+    toast.classList.add(`toast-${tipo}`);
+
+    // Asignar icono y texto
+    icon.textContent = iconos[tipo] || "";
+    text.textContent = texto;
+
+    // Mostrar
+    toast.classList.add("show");
+
+    // Ocultar
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, tiempo);
+}

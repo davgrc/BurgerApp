@@ -211,12 +211,12 @@ btnGuardarTasas.addEventListener("click", () => {
     const ves = parseFloat(usd_ves.value);
 
     if (isNaN(cop) || cop <= 0) {
-        alerta("Debes ingresar un valor válido para USD → COP.");
+        mostrarMensaje("Debes ingresar un valor válido para USD → COP.", "warning");
         return;
     }
 
     if (isNaN(ves) || ves <= 0) {
-        alerta("Debes ingresar un valor válido para USD → VES.");
+        mostrarMensaje("Debes ingresar un valor válido para USD → VES.", "warning");
         return;
     }
 
@@ -225,8 +225,9 @@ btnGuardarTasas.addEventListener("click", () => {
         usd_ves: ves
     });
 
-    alerta("Tasas guardadas correctamente.");
+    mostrarMensaje("Tasas guardadas correctamente.", "success");
 });
+
 
 
 
