@@ -42,10 +42,10 @@ function pedidosRealizados() {
    ========================================================= */
 
 function moverAPapelera(id) {
-    id = Number(id);
+    const idNum = Number(id); // ← NORMALIZACIÓN
 
     const pedidos = obtenerPedidos();
-    const pedido = pedidos.find(p => p.id === id);
+    const pedido = pedidos.find(p => Number(p.id) === idNum);
 
     if (!pedido) return;
 
@@ -61,7 +61,11 @@ function moverAPapelera(id) {
    ========================================================= */
 
 function toggleExpand(id) {
-    const tarjeta = document.getElementById("realizado-" + id);
+    const idStr = String(id); // ← NORMALIZACIÓN
+    const tarjeta = document.getElementById("realizado-" + idStr);
+
+    if (!tarjeta) return; // ← PREVENCIÓN DE ERRORES
+
     tarjeta.classList.toggle("expandido");
 }
 
@@ -80,8 +84,10 @@ function crearTarjetaRealizado(p) {
     const monedaMostrar = p.moneda === "bs" ? "Bs" : p.moneda.toUpperCase();
     const precioTexto = `${formatearNumero(p.precio)} ${monedaMostrar}`;
 
+    const idStr = String(p.id); // ← NORMALIZACIÓN
+
     return `
-        <div class="card pedido-item minimizado" id="realizado-${p.id}">
+        <div class="card pedido-item minimizado" id="realizado-${idStr}">
 
             <div class="pedido-header">
                 <strong>${p.productoTexto}</strong>
@@ -89,8 +95,8 @@ function crearTarjetaRealizado(p) {
                 <span>${precioTexto}</span>
 
                 <div class="pedido-botones">
-                    <button onclick="toggleExpand('${p.id}')">👁</button>
-                    <button onclick="moverAPapelera('${p.id}')">🗑</button>
+                    <button class="btn-restore" onclick="toggleExpand('${idStr}')">▼</button>
+                    <button class="btn-del" onclick="moverAPapelera('${idStr}')">✖</button>
                 </div>
             </div>
 
