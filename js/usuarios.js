@@ -13,7 +13,6 @@ function obtenerUsuarios() {
 }
 
 
-
 /* =========================================================
    2. GUARDAR LISTA DE USUARIOS
    ========================================================= */
@@ -21,7 +20,6 @@ function obtenerUsuarios() {
 function guardarUsuarios(lista) {
     guardarLS("usuarios", lista);
 }
-
 
 
 /* =========================================================
@@ -33,7 +31,6 @@ function obtenerUsuarioActual() {
 }
 
 
-
 /* =========================================================
    4. GUARDAR USUARIO ACTUAL
    ========================================================= */
@@ -43,7 +40,6 @@ function guardarUsuarioActual(idUsuario) {
 }
 
 
-
 /* =========================================================
    5. CREAR USUARIO
    ========================================================= */
@@ -51,14 +47,14 @@ function guardarUsuarioActual(idUsuario) {
 function crearUsuario(nombre, clave) {
 
     if (campoVacio(nombre) || campoVacio(clave)) {
-        alerta("Debes ingresar nombre y contraseña.");
+        mostrarMensaje("Debes ingresar nombre y contraseña.", "warning");
         return false;
     }
 
     const usuarios = obtenerUsuarios();
 
     if (usuarios.some(u => u.usuario.toLowerCase() === nombre.toLowerCase())) {
-        alerta("Ya existe un usuario con ese nombre.");
+        mostrarMensaje("Ya existe un usuario con ese nombre.", "warning");
         return false;
     }
 
@@ -75,9 +71,9 @@ function crearUsuario(nombre, clave) {
         guardarUsuarioActual(nuevo.id);
     }
 
+    mostrarMensaje("Usuario creado correctamente.", "success");
     return true;
 }
-
 
 
 /* =========================================================
@@ -86,23 +82,23 @@ function crearUsuario(nombre, clave) {
 
 function editarUsuario(id, nuevoNombre, nuevaClave) {
 
-    id = Number(id); // ← CORRECCIÓN CRÍTICA
+    id = Number(id);
 
     const usuarios = obtenerUsuarios();
     const usuario = usuarios.find(u => u.id === id);
 
     if (!usuario) {
-        alerta("Usuario no encontrado.");
+        mostrarMensaje("Usuario no encontrado.", "warning");
         return false;
     }
 
     if (campoVacio(nuevoNombre)) {
-        alerta("El nombre no puede estar vacío.");
+        mostrarMensaje("El nombre no puede estar vacío.", "warning");
         return false;
     }
 
     if (usuarios.some(u => u.usuario.toLowerCase() === nuevoNombre.toLowerCase() && u.id !== id)) {
-        alerta("Ya existe otro usuario con ese nombre.");
+        mostrarMensaje("Ya existe otro usuario con ese nombre.", "warning");
         return false;
     }
 
@@ -113,9 +109,10 @@ function editarUsuario(id, nuevoNombre, nuevaClave) {
     }
 
     guardarUsuarios(usuarios);
+
+    mostrarMensaje("Usuario actualizado correctamente.", "success");
     return true;
 }
-
 
 
 /* =========================================================
@@ -124,12 +121,12 @@ function editarUsuario(id, nuevoNombre, nuevaClave) {
 
 function eliminarUsuario(id) {
 
-    id = Number(id); // ← CORRECCIÓN CRÍTICA
+    id = Number(id);
 
     let usuarios = obtenerUsuarios();
 
     if (usuarios.length === 1) {
-        alerta("No puedes eliminar el único usuario existente.");
+        mostrarMensaje("No puedes eliminar el único usuario existente.", "warning");
         return false;
     }
 
@@ -142,9 +139,9 @@ function eliminarUsuario(id) {
         guardarUsuarioActual(usuarios[0].id);
     }
 
+    mostrarMensaje("Usuario eliminado correctamente.", "success");
     return true;
 }
-
 
 
 /* =========================================================

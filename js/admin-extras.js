@@ -39,8 +39,15 @@ function agregarExtra() {
     const precio = parseFloat(extraPrecio.value);
     const moneda = extraMoneda.value;
 
-    if (campoVacio(nombre)) return alerta("Debes ingresar un nombre.");
-    if (isNaN(precio) || precio <= 0) return alerta("Precio inválido.");
+    if (campoVacio(nombre)) {
+        mostrarMensaje("Debes ingresar un nombre.", "warning");
+        return;
+    }
+
+    if (isNaN(precio) || precio <= 0) {
+        mostrarMensaje("Precio inválido.", "warning");
+        return;
+    }
 
     const extras = obtenerExtras();
 
@@ -57,6 +64,7 @@ function agregarExtra() {
     extraPrecio.value = "";
 
     mostrarExtras();
+    mostrarMensaje("Extra agregado correctamente.", "success");
 }
 
 /* =========================================================
@@ -71,6 +79,8 @@ function eliminarExtra(id) {
 
     guardarExtras(extras);
     mostrarExtras();
+
+    mostrarMensaje("Extra eliminado correctamente.", "success");
 }
 
 /* =========================================================
@@ -111,8 +121,15 @@ function guardarEdicionExtra() {
     const precio = parseFloat(editPrecio.value);
     const moneda = editMoneda.value;
 
-    if (campoVacio(nombre)) return alerta("Nombre inválido.");
-    if (isNaN(precio) || precio <= 0) return alerta("Precio inválido.");
+    if (campoVacio(nombre)) {
+        mostrarMensaje("Nombre inválido.", "warning");
+        return;
+    }
+
+    if (isNaN(precio) || precio <= 0) {
+        mostrarMensaje("Precio inválido.", "warning");
+        return;
+    }
 
     const extras = obtenerExtras();
     const extra = extras.find(e => e.id === extraEditandoID);
@@ -126,6 +143,8 @@ function guardarEdicionExtra() {
     guardarExtras(extras);
     cerrarModalExtra();
     mostrarExtras();
+
+    mostrarMensaje("Extra actualizado correctamente.", "success");
 }
 
 /* =========================================================
@@ -147,7 +166,6 @@ function crearTarjetaExtra(e) {
         </div>
     `;
 }
-
 
 /* =========================================================
    MOSTRAR EXTRAS

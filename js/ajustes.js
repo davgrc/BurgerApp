@@ -32,6 +32,7 @@ const editarUsuarioCancelar = document.getElementById("editarUsuarioCancelar");
 /* Variable temporal para saber qué usuario estamos editando */
 let usuarioEditandoID = null;
 
+
 /* =========================================================
    REFERENCIAS A TASAS
    ========================================================= */
@@ -60,7 +61,7 @@ function renderUsuarios() {
     }
 
     listaUsuarios.innerHTML = usuarios.map((u, index) => {
-        const esActual = u.id === actual;
+        const esActual = u.id === Number(actual);
 
         return `
             <div class="card" style="margin-bottom:12px;">
@@ -103,10 +104,9 @@ function cerrarModalCrear() {
 
 function abrirModalEditar(id) {
     const usuarios = obtenerUsuarios();
-    const idNum = Number(id); // convertir a número
+    const idNum = Number(id);
 
     const usuario = usuarios.find(u => u.id === idNum);
-
     if (!usuario) return;
 
     usuarioEditandoID = idNum;
@@ -115,7 +115,6 @@ function abrirModalEditar(id) {
 
     modalEditar.style.display = "flex";
 }
-
 
 function cerrarModalEditar() {
     modalEditar.style.display = "none";
@@ -133,7 +132,7 @@ crearUsuarioConfirmar.addEventListener("click", () => {
     const clave = nuevoUsuarioClave.value.trim();
 
     if (crearUsuario(nombre, clave)) {
-        alerta("Usuario creado correctamente.");
+        mostrarMensaje("Usuario creado correctamente.", "success");
         cerrarModalCrear();
         renderUsuarios();
     }
@@ -154,7 +153,7 @@ editarUsuarioConfirmar.addEventListener("click", () => {
     const clave = editarUsuarioClave.value.trim();
 
     if (editarUsuario(usuarioEditandoID, nombre, clave)) {
-        alerta("Usuario actualizado.");
+        mostrarMensaje("Usuario actualizado.", "success");
         cerrarModalEditar();
         renderUsuarios();
     }
@@ -171,7 +170,7 @@ editarUsuarioCancelar.addEventListener("click", cerrarModalEditar);
 function eliminarUsuarioAjustes(id) {
     if (confirm("¿Seguro que deseas eliminar este usuario?")) {
         if (eliminarUsuario(id)) {
-            alerta("Usuario eliminado.");
+            mostrarMensaje("Usuario eliminado.", "success");
             renderUsuarios();
         }
     }
@@ -192,8 +191,10 @@ btnResetApp.addEventListener("click", () => {
     localStorage.removeItem("extras");
     localStorage.removeItem("categorias");
 
-    alerta("Aplicación reseteada correctamente.");
+    mostrarMensaje("Aplicación reseteada correctamente.", "success");
 });
+
+
 
 /* =========================================================
    7.5 GUARDAR Y CARGAR TASAS
@@ -227,7 +228,6 @@ btnGuardarTasas.addEventListener("click", () => {
 
     mostrarMensaje("Tasas guardadas correctamente.", "success");
 });
-
 
 
 

@@ -43,7 +43,7 @@ function agregarCategoria() {
     const nombre = catNombre.value.trim();
 
     if (campoVacio(nombre)) {
-        alerta("Debes ingresar un nombre para la categoría.");
+        mostrarMensaje("Debes ingresar un nombre para la categoría.", "warning");
         return;
     }
 
@@ -51,7 +51,7 @@ function agregarCategoria() {
 
     // Evitar duplicados
     if (categorias.some(c => c.nombre.toLowerCase() === nombre.toLowerCase())) {
-        alerta("Ya existe una categoría con ese nombre.");
+        mostrarMensaje("Ya existe una categoría con ese nombre.", "warning");
         return;
     }
 
@@ -63,7 +63,7 @@ function agregarCategoria() {
     categorias.push(nuevaCategoria);
     guardarCategorias(categorias);
 
-    alerta("Categoría agregada correctamente.");
+    mostrarMensaje("Categoría agregada correctamente.", "success");
 
     catNombre.value = "";
     mostrarCategorias();
@@ -81,7 +81,7 @@ function eliminarCategoria(id) {
 
     // Evitar eliminar categorías que tienen subcategorías
     if (subcategorias.some(s => s.categoriaID == id)) {
-        alerta("No puedes eliminar esta categoría porque tiene subcategorías asociadas.");
+        mostrarMensaje("No puedes eliminar esta categoría porque tiene subcategorías asociadas.", "warning");
         return;
     }
 
@@ -90,6 +90,8 @@ function eliminarCategoria(id) {
 
     guardarCategorias(categorias);
     mostrarCategorias();
+
+    mostrarMensaje("Categoría eliminada correctamente.", "success");
 }
 
 
@@ -115,7 +117,7 @@ btnGuardarEdicion.addEventListener("click", () => {
     const nuevoNombre = editarNombre.value.trim();
 
     if (campoVacio(nuevoNombre)) {
-        alerta("El nombre no puede estar vacío.");
+        mostrarMensaje("El nombre no puede estar vacío.", "warning");
         return;
     }
 
@@ -123,7 +125,7 @@ btnGuardarEdicion.addEventListener("click", () => {
 
     // Evitar duplicados
     if (categorias.some(c => c.nombre.toLowerCase() === nuevoNombre.toLowerCase() && c.id !== categoriaEditandoID)) {
-        alerta("Ya existe otra categoría con ese nombre.");
+        mostrarMensaje("Ya existe otra categoría con ese nombre.", "warning");
         return;
     }
 
@@ -133,18 +135,14 @@ btnGuardarEdicion.addEventListener("click", () => {
 
     guardarCategorias(categorias);
 
-    // Actualizar subcategorías que dependan de esta categoría
+    // Actualizar subcategorías (solo por consistencia)
     const subcategorias = leerLS("subcategorias", []);
-    subcategorias.forEach(s => {
-        if (s.categoriaID === categoriaEditandoID) {
-            // No cambiamos ID, solo el nombre se usa en nuevo-gasto.js
-        }
-    });
     guardarLS("subcategorias", subcategorias);
 
     modalEditar.style.display = "none";
     mostrarCategorias();
-    alerta("Categoría actualizada correctamente.");
+
+    mostrarMensaje("Categoría actualizada correctamente.", "success");
 });
 
 

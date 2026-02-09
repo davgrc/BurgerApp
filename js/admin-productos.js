@@ -22,8 +22,15 @@ function agregarProducto() {
     const precio = parseFloat(prodPrecio.value);
     const moneda = prodMoneda.value;
 
-    if (campoVacio(nombre)) return alerta("Debes ingresar un nombre.");
-    if (isNaN(precio) || precio <= 0) return alerta("Precio inválido.");
+    if (campoVacio(nombre)) {
+        mostrarMensaje("Debes ingresar un nombre.", "warning");
+        return;
+    }
+
+    if (isNaN(precio) || precio <= 0) {
+        mostrarMensaje("Precio inválido.", "warning");
+        return;
+    }
 
     const productos = obtenerProductos();
 
@@ -40,21 +47,24 @@ function agregarProducto() {
     prodPrecio.value = "";
 
     mostrarProductos();
+    mostrarMensaje("Producto agregado correctamente.", "success");
 }
 
 function eliminarProducto(id) {
-    id = Number(id); // ← FIX
+    id = Number(id);
 
     let productos = obtenerProductos();
     productos = productos.filter(p => p.id !== id);
     guardarProductos(productos);
     mostrarProductos();
+
+    mostrarMensaje("Producto eliminado correctamente.", "success");
 }
 
 let idEditando = null;
 
 function editarProducto(id) {
-    id = Number(id); // ← FIX
+    id = Number(id);
 
     const productos = obtenerProductos();
     const p = productos.find(x => x.id === id);
@@ -76,7 +86,7 @@ function guardarEdicion() {
     const moneda = document.getElementById("editMoneda").value;
 
     if (campoVacio(nombre) || isNaN(precio) || precio <= 0) {
-        alerta("Debes completar todos los campos correctamente.");
+        mostrarMensaje("Debes completar todos los campos correctamente.", "warning");
         return;
     }
 
@@ -92,6 +102,8 @@ function guardarEdicion() {
     guardarProductos(productos);
     mostrarProductos();
     cerrarModal();
+
+    mostrarMensaje("Producto actualizado correctamente.", "success");
 }
 
 function cerrarModal() {

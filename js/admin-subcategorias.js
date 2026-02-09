@@ -21,7 +21,6 @@ const btnGuardarEdicionSubcat = document.getElementById("btnGuardarEdicionSubcat
 let subcatEditandoID = null;
 
 
-
 /* =========================================================
    2. OBTENER / GUARDAR CATEGORÍAS Y SUBCATEGORÍAS
    ========================================================= */
@@ -39,7 +38,6 @@ function guardarSubcategorias(lista) {
 }
 
 
-
 /* =========================================================
    3. CARGAR CATEGORÍAS EN SELECTS
    ========================================================= */
@@ -47,19 +45,16 @@ function guardarSubcategorias(lista) {
 function cargarCategoriasEnSelects() {
     const categorias = obtenerCategorias();
 
-    // Select principal
     subcatCategoria.innerHTML = `<option value="">Seleccione categoría</option>`;
     categorias.forEach(c => {
         subcatCategoria.innerHTML += `<option value="${c.id}">${c.nombre}</option>`;
     });
 
-    // Select del modal de edición
     editarSubcatCategoria.innerHTML = "";
     categorias.forEach(c => {
         editarSubcatCategoria.innerHTML += `<option value="${c.id}">${c.nombre}</option>`;
     });
 }
-
 
 
 /* =========================================================
@@ -72,23 +67,22 @@ function agregarSubcategoria() {
     const nombre = subcatNombre.value.trim();
 
     if (campoVacio(categoriaID)) {
-        alerta("Debes seleccionar una categoría.");
+        mostrarMensaje("Debes seleccionar una categoría.", "warning");
         return;
     }
 
     if (campoVacio(nombre)) {
-        alerta("Debes ingresar un nombre para la subcategoría.");
+        mostrarMensaje("Debes ingresar un nombre para la subcategoría.", "warning");
         return;
     }
 
     const subcategorias = obtenerSubcategorias();
 
-    // Evitar duplicados dentro de la misma categoría
     if (subcategorias.some(s =>
         s.categoriaID == categoriaID &&
         s.nombre.toLowerCase() === nombre.toLowerCase()
     )) {
-        alerta("Ya existe una subcategoría con ese nombre en esta categoría.");
+        mostrarMensaje("Ya existe una subcategoría con ese nombre en esta categoría.", "warning");
         return;
     }
 
@@ -101,12 +95,11 @@ function agregarSubcategoria() {
     subcategorias.push(nueva);
     guardarSubcategorias(subcategorias);
 
-    alerta("Subcategoría agregada correctamente.");
+    mostrarMensaje("Subcategoría agregada correctamente.", "success");
 
     subcatNombre.value = "";
     mostrarSubcategorias();
 }
-
 
 
 /* =========================================================
@@ -119,8 +112,9 @@ function eliminarSubcategoria(id) {
 
     guardarSubcategorias(subcategorias);
     mostrarSubcategorias();
-}
 
+    mostrarMensaje("Subcategoría eliminada correctamente.", "success");
+}
 
 
 /* =========================================================
@@ -142,7 +136,6 @@ function abrirModalEditarSubcat(id) {
 }
 
 
-
 /* =========================================================
    7. GUARDAR EDICIÓN DE SUBCATEGORÍA
    ========================================================= */
@@ -153,19 +146,18 @@ btnGuardarEdicionSubcat.addEventListener("click", () => {
     const nuevaCategoriaID = editarSubcatCategoria.value;
 
     if (campoVacio(nuevoNombre)) {
-        alerta("El nombre no puede estar vacío.");
+        mostrarMensaje("El nombre no puede estar vacío.", "warning");
         return;
     }
 
     const subcategorias = obtenerSubcategorias();
 
-    // Evitar duplicados dentro de la misma categoría
     if (subcategorias.some(s =>
         s.id !== subcatEditandoID &&
         s.categoriaID == nuevaCategoriaID &&
         s.nombre.toLowerCase() === nuevoNombre.toLowerCase()
     )) {
-        alerta("Ya existe una subcategoría con ese nombre en esta categoría.");
+        mostrarMensaje("Ya existe una subcategoría con ese nombre en esta categoría.", "warning");
         return;
     }
 
@@ -177,9 +169,9 @@ btnGuardarEdicionSubcat.addEventListener("click", () => {
 
     modalEditarSubcat.style.display = "none";
     mostrarSubcategorias();
-    alerta("Subcategoría actualizada correctamente.");
-});
 
+    mostrarMensaje("Subcategoría actualizada correctamente.", "success");
+});
 
 
 /* =========================================================
@@ -201,7 +193,6 @@ function crearTarjetaSubcategoria(s) {
         </div>
     `;
 }
-
 
 
 /* =========================================================
@@ -226,13 +217,11 @@ function mostrarSubcategorias() {
 }
 
 
-
 /* =========================================================
    10. EVENTOS
    ========================================================= */
 
 btnAgregarSubcategoria.addEventListener("click", agregarSubcategoria);
-
 
 
 /* =========================================================

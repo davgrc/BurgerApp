@@ -452,7 +452,7 @@ guardarPedido.addEventListener("click", () => {
     const error = validarPedido(data);
 
     if (error) {
-        alerta(error);
+        mostrarMensaje(error, "warning");
         return;
     }
 
@@ -474,9 +474,10 @@ guardarPedido.addEventListener("click", () => {
     pedidos.push(data);
     guardarLS("pedidos", pedidos);
 
-    alerta("Pedido guardado correctamente.");
+    mostrarMensaje("Pedido guardado correctamente.", "success");
     window.location.href = "pedidos.html";
 });
+
 
 
 

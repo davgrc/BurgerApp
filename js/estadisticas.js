@@ -556,12 +556,12 @@ modalRango.addEventListener("click", (e) => {
 btnAplicarRango.addEventListener("click", () => {
 
     if (!fechaInicio.value || !fechaFin.value) {
-        alerta("Debes seleccionar fecha inicial y final.");
+        mostrarMensaje("Debes seleccionar fecha inicial y final.", "warning");
         return;
     }
 
     if (fechaInicio.value > fechaFin.value) {
-        alerta("La fecha inicial no puede ser mayor que la final.");
+        mostrarMensaje("La fecha inicial no puede ser mayor que la final.", "warning");
         return;
     }
 
@@ -577,6 +577,7 @@ btnAplicarRango.addEventListener("click", () => {
     modalRango.style.display = "none";
     renderTodo();
 });
+
 
 
 /* =========================================================
