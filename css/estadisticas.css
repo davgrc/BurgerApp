@@ -70,14 +70,15 @@
 }
 
 /* Iconos por categoría */
-.fold-card:nth-child(1) h2::before { content: "📊"; }
-.fold-card:nth-child(2) h2::before { content: "🍔"; }
-.fold-card:nth-child(3) h2::before { content: "➕"; }
-.fold-card:nth-child(4) h2::before { content: "👥"; }
-.fold-card:nth-child(5) h2::before { content: "💸"; }
-.fold-card:nth-child(6) h2::before { content: "📂"; }
+.fold-card:nth-child(1) h2::before { content: ""; }
+.fold-card:nth-child(2) h2::before { content: "💱"; }
+.fold-card:nth-child(3) h2::before { content: "🍔"; }
+.fold-card:nth-child(4) h2::before { content: "🍟"; }
+.fold-card:nth-child(5) h2::before { content: "👤"; }
+.fold-card:nth-child(6) h2::before { content: "🛒"; }
 .fold-card:nth-child(7) h2::before { content: "🗂️"; }
-.fold-card:nth-child(8) h2::before { content: "💹"; }
+.fold-card:nth-child(8) h2::before { content: "🍞"; }
+.fold-card:nth-child(9) h2::before { content: "📊"; }
 
 
 /* Animación suave al abrir */
