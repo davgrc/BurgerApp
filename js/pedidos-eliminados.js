@@ -38,7 +38,7 @@ function pedidosEliminados() {
 
 
 /* =========================================================
-   4. RESTAURAR PEDIDO (volver a pendiente)
+   4. RESTAURAR PEDIDO
    ========================================================= */
 
 function restaurarPedido(id) {
@@ -96,19 +96,25 @@ function crearTarjetaEliminado(p) {
     const monedaMostrar = p.moneda === "bs" ? "Bs" : p.moneda.toUpperCase();
     const precioTexto = `${formatearNumero(p.precio)} ${monedaMostrar}`;
 
+    const idStr = String(p.id);
+
     return `
-        <div class="card pedido-item minimizado" id="eliminado-${p.id}">
+        <div class="card pedido-item minimizado" id="eliminado-${idStr}">
 
             <div class="pedido-header">
-                <strong>${p.productoTexto}</strong>
-                <span>${p.cliente.nombre}</span>
-                <span>${precioTexto}</span>
-
-                <div class="pedido-botones">
-                    <button onclick="toggleExpand('${p.id}')">👁</button>
-                    <button onclick="restaurarPedido('${p.id}')">↩</button>
-                    <button onclick="eliminarDefinitivo('${p.id}')">❌</button>
+                <div>
+                    <strong>${p.productoTexto}</strong>
+                    <p style="opacity:0.7; font-size:13px;">${p.cliente.nombre}</p>
                 </div>
+
+                <div class="precio">${precioTexto}</div>
+            </div>
+
+            <!-- BOTONES ABAJO, IGUAL A pedidos.html -->
+            <div class="pedido-acciones">
+                <button class="btn-ver" onclick="toggleExpand('${idStr}')">Ver</button>
+                <button class="btn-restore" onclick="restaurarPedido('${idStr}')">↩</button>
+                <button class="btn-del" onclick="eliminarDefinitivo('${idStr}')">✖</button>
             </div>
 
             <div class="pedido-detalles">

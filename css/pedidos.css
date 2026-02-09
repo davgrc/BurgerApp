@@ -24,6 +24,7 @@
     opacity: 0.9;
 }
 
+/* Botones viejos (ya no se usan, pero no se eliminan por compatibilidad) */
 .pedido-botones button {
     margin-left: 5px;
     background: #222;
@@ -31,6 +32,13 @@
     border: none;
     padding: 4px 8px;
     border-radius: 6px;
+}
+
+.pedido-botones {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .pedido-detalles {
@@ -43,7 +51,7 @@
 }
 
 /* =========================================================
-   BOTONES GRANDES DE ACCIONES
+   BOTONES GRANDES DE ACCIONES (ESTILO MODERNO)
    ========================================================= */
 
 .pedido-acciones {
@@ -63,9 +71,26 @@
     color: #fff;
 }
 
-.pedido-acciones .btn-ver { background-color: #444; }
-.pedido-acciones .btn-ok { background-color: #27ae60; }
-.pedido-acciones .btn-del { background-color: #EB5757; }
+/* Botón gris (ver) */
+.pedido-acciones .btn-ver {
+    background-color: #444;
+}
+
+/* Botón verde (ok) */
+.pedido-acciones .btn-ok {
+    background-color: #27ae60;
+}
+
+/* Botón rojo (eliminar) */
+.pedido-acciones .btn-del {
+    background-color: #EB5757;
+}
+
+/* ⭐ CORRECCIÓN: Botón azul (restaurar) */
+.pedido-acciones .btn-restore {
+    background-color: #2D9CDB !important;
+    color: #fff !important;
+}
 
 .pedido-acciones button:active {
     transform: scale(0.97);
