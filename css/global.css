@@ -352,3 +352,60 @@ button {
 .fold-card.open .fold-content {
     display: block;
 }
+
+/* =========================================================
+   MENÚ ACORDEÓN PROFESIONAL (SIDE MENU)
+   ========================================================= */
+
+.menu-group {
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.menu-title {
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
+}
+
+.menu-title:hover {
+    background-color: #1a1a1a;
+}
+
+.menu-title .arrow {
+    transition: transform 0.25s ease;
+}
+
+/* Flecha gira cuando el grupo está abierto */
+.menu-group.open .arrow {
+    transform: rotate(90deg);
+}
+
+/* Contenedor de las opciones internas */
+.menu-sub {
+    max-height: 0;
+    overflow: hidden;
+    background-color: #0d0d0d;
+    transition: max-height 0.3s ease;
+}
+
+/* Cuando el grupo está abierto, se expande */
+.menu-group.open .menu-sub {
+    max-height: 500px; /* suficiente para mostrar los enlaces */
+}
+
+.menu-sub li a {
+    display: block;
+    padding: 10px 30px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.menu-sub li a:hover {
+    background-color: #1a1a1a;
+    opacity: 1;
+}

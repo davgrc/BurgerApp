@@ -103,16 +103,19 @@ function cerrarModalCrear() {
 
 function abrirModalEditar(id) {
     const usuarios = obtenerUsuarios();
-    const usuario = usuarios.find(u => u.id === id);
+    const idNum = Number(id); // convertir a número
+
+    const usuario = usuarios.find(u => u.id === idNum);
 
     if (!usuario) return;
 
-    usuarioEditandoID = id;
+    usuarioEditandoID = idNum;
     editarUsuarioNombre.value = usuario.usuario;
     editarUsuarioClave.value = "";
 
     modalEditar.style.display = "flex";
 }
+
 
 function cerrarModalEditar() {
     modalEditar.style.display = "none";
