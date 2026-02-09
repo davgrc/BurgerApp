@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - 3 Tesoros</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/registros.css"> <!-- NECESARIO PARA LOS BOTONES -->
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-btn" id="btnMenu">☰</div>
+
+        <div style="text-align:center;">
+            <h1 class="header-title">3 TESOROS 🍔 GESTION APP</h1>
+            <small id="usuarioActual" style="opacity:0.7; font-size:12px;"></small>
+        </div>
+
+        <a class="header-btn" id="btnLogout" href="index.html">✖</a>
+    </header>
+
+
+    <!-- MENÚ LATERAL -->
+    <nav class="side-menu" id="sideMenu">
+
+        <div class="side-menu-header">
+            <h2>Menú</h2>
+        </div>
+
+        <ul class="side-menu-list">
+
+            <!-- INICIO -->
+            <li class="menu-group">
+                <div class="menu-title" onclick="toggleMenuGroup(this)">
+                    Inicio
+                    <span class="arrow">›</span>
+                </div>
+                <ul class="menu-sub">
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="pedidos.html">Pedidos</a></li>
+                    <li><a href="gastos.html">Gastos</a></li>
+                    <li><a href="estadisticas.html">Estadísticas</a></li>
+                </ul>
+            </li>
+
+            <!-- ADMINISTRACIÓN -->
+            <li class="menu-group">
+                <div class="menu-title" onclick="toggleMenuGroup(this)">
+                    Administración
+                    <span class="arrow">›</span>
+                </div>
+                <ul class="menu-sub">
+                    <li><a href="admin/productos.html">Productos</a></li>
+                    <li><a href="admin/extras.html">Extras</a></li>
+                    <li><a href="admin/categorias.html">Categorías</a></li>
+                    <li><a href="admin/subcategorias.html">Subcategorías</a></li>
+                </ul>
+            </li>
+
+            <!-- REGISTROS -->
+            <li class="menu-group">
+                <div class="menu-title" onclick="toggleMenuGroup(this)">
+                    Registros
+                    <span class="arrow">›</span>
+                </div>
+                <ul class="menu-sub">
+                    <li><a href="e-realizados.html">Elementos realizados</a></li>
+                    <li><a href="e-eliminados.html">Elementos eliminados</a></li>
+                </ul>
+            </li>
+
+            <!-- AJUSTES -->
+            <li class="menu-group">
+                <div class="menu-title" onclick="toggleMenuGroup(this)">
+                    Ajustes
+                    <span class="arrow">›</span>
+                </div>
+                <ul class="menu-sub">
+                    <li><a href="ajustes.html">Sistema</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="dashboard">
+
+        <!-- FILTROS DE RANGO (usando estilos de registros.css) -->
+        <div class="filtros-fecha">
+            <button class="filtro-btn active" data-modo="hoy">Hoy</button>
+            <button class="filtro-btn" data-modo="semana">Semana</button>
+            <button class="filtro-btn" data-modo="mes">Mes</button>
+            <button class="filtro-btn" data-modo="año">Año</button>
+        </div>
+
+
+        <!-- INGRESOS Y GASTOS -->
+        <section class="cards-row">
+
+            <div class="card">
+                <h2 class="card-title">Ingresos</h2>
+
+                <p>Bs: <span id="ingBs">0</span></p>
+                <p>USD: <span id="ingUsd">0</span></p>
+                <p>COP: <span id="ingCop">0</span></p>
+
+                <div class="card-total">
+                    Total: <span id="ingTotal">0</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">Gastos</h2>
+
+                <p>Bs: <span id="gasBs">0</span></p>
+                <p>USD: <span id="gasUsd">0</span></p>
+                <p>COP: <span id="gasCop">0</span></p>
+
+                <div class="card-total">
+                    Total: <span id="gasTotal">0</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- SELECTOR DE MONEDA -->
+        <section class="selector-moneda">
+            <p>Ver totales en:</p>
+
+            <div class="selector-opciones">
+                <button class="moneda-btn" data-moneda="bs">Bs</button>
+                <button class="moneda-btn" data-moneda="usd">USD</button>
+                <button class="moneda-btn" data-moneda="cop">COP</button>
+            </div>
+        </section>
+
+
+        <!-- GANANCIA -->
+        <section class="card-ganancia">
+            <h2>Ganancia</h2>
+            <p id="gananciaDia">-</p>
+        </section>
+
+
+        <!-- BOTONES FINALES -->
+        <section style="display:flex; justify-content:space-between; margin-top:25px;">
+
+            <a href="pedidos.html"
+               style="flex:1; margin-right:10px; text-align:center; padding:12px; 
+                      background:#FFD93D; color:#000; font-weight:600; border-radius:8px;">
+                Pedidos
+            </a>
+
+            <a href="gastos.html"
+               style="flex:1; margin-left:10px; text-align:center; padding:12px; 
+                      background:#FF4D4D; color:#fff; font-weight:600; border-radius:8px;">
+                Gastos
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <a href="nuevo-pedido.html" class="footer-btn">🍔</a>
+        <a href="nuevo-gasto.html" class="footer-btn">💵</a>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="js/global.js"></script>
+    <script src="js/tasas.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>

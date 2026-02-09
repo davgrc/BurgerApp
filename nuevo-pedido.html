@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nuevo Pedido - 3 Tesoros</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/interfaz.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="dashboard.html" class="header-btn">←</a>
+        <h1 class="header-title">Nuevo Pedido</h1>
+        <div class="header-btn"></div>
+    </header>
+
+    <main class="formulario">
+
+        <!-- PRODUCTO -->
+        <section class="card card-pedidos">
+            <h2 class="card-title">Producto</h2>
+
+            <label>Producto</label>
+            <select id="productoSelect"></select>
+
+            <label>Extras</label>
+            <div id="extrasContainer"></div>
+
+            <label>Precio final</label>
+            <input type="text" id="precioInput" readonly>
+
+            <label>Moneda del precio</label>
+            <select id="monedaPrecio">
+                <option value="">Seleccione la moneda del precio</option>
+                <option value="bs">Bs</option>
+                <option value="usd">USD</option>
+                <option value="cop">COP</option>
+            </select>
+        </section>
+
+        <!-- PAGO -->
+        <section class="card">
+            <h2 class="card-title">Pago</h2>
+
+            <label>Dinero recibido</label>
+            <input type="number" id="dineroRecibido">
+
+            <label>Moneda recibida</label>
+            <select id="monedaRecibida">
+                <option value="bs">Bs</option>
+                <option value="usd">USD</option>
+                <option value="cop">COP</option>
+            </select>
+
+        </section>
+
+        <section class="card card-pedidos">
+            <h2 class="card-title">Vueltos</h2>
+            
+            <p id="vueltosTexto" style="text-align:center; margin-top:10px; font-weight:600;"></p> <br>
+
+                        <label>Moneda de vueltos</label>
+            <select id="monedaVueltos">
+                <option value="bs">Bs</option>
+                <option value="usd">USD</option>
+                <option value="cop">COP</option>
+            </select>
+
+            <!-- SWITCH DE VUELTOS -->
+            <div class="switch-row" id="switchVueltosRow" style="text-align: center; display:none;">
+                <input type="checkbox" id="vueltosEntregadosSwitch">
+                <label for="vueltosEntregadosSwitch">Entregué los vueltos al cliente</label>
+            </div>
+        </section>
+
+        <!-- ICONO GRANDE DE CONTACTO -->
+        <button id="btnContacto">👤</button>
+
+        <!-- FORMULARIO DE CONTACTO (OCULTO AL INICIO) -->
+        <section class="card" id="cardContacto" style="display:none;">
+            <h2 class="card-title">Contacto</h2>
+
+            <div class="input-icono">
+                <label>Nombre</label>
+                <input type="text" id="clienteNombre">
+                <button id="btnListaContactos">👤</button>
+            </div>
+
+            <label>Dirección</label>
+            <input type="text" id="clienteDireccion">
+
+            <label>País</label>
+            <select id="paisSelect">
+                <option value="+58">Venezuela (+58)</option>
+                <option value="otro">Otro</option>
+            </select>
+
+            <div id="codigoManualContainer" class="hidden">
+                <label>Código manual</label>
+                <input type="text" id="codigoManual">
+            </div>
+
+            <label>Teléfono</label>
+            <input type="text" id="clienteTelefono">
+
+            <!-- SWITCH GUARDAR CONTACTO -->
+            <div class="switch-row switch-contacto">
+                <input type="checkbox" id="guardarContactoSwitch">
+                <label for="guardarContactoSwitch">Guardar este contacto</label>
+            </div>
+        </section>
+
+        <!-- BOTÓN GUARDAR PEDIDO -->
+        <button id="guardarPedido" class="btn-guardar">Guardar Pedido</button>
+
+    </main>
+
+    <!-- MODAL LISTA DE CONTACTOS -->
+    <div id="modalContactos">
+        <div class="contenido">
+            <h3>Contactos guardados</h3>
+            <div id="listaContactos"></div>
+            <button class="btn-cerrar" onclick="cerrarModalContactos()">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="js/global.js"></script>
+    <script src="js/tasas.js"></script>
+    <script src="js/nuevo-pedido.js"></script>
+
+</body>
+</html>

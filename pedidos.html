@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Vista móvil -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pedidos - 3 Tesoros</title>
+
+    <!-- Fuente moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Estilos globales y de formularios/listas -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/pedidos.css">
+    <link rel="stylesheet" href="css/registros.css">
+
+    <!-- NUEVO CSS PARA BOTONES GRANDES -->
+    <style>
+        .pedido-acciones {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            gap: 8px;
+        }
+
+        .pedido-acciones button {
+            flex: 1;
+            padding: 10px 0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            background-color: #222;
+            color: #fff;
+        }
+
+        .pedido-acciones .btn-ver { background-color: #444; }
+        .pedido-acciones .btn-ok { background-color: #27ae60; }
+        .pedido-acciones .btn-del { background-color: #EB5757; }
+
+        .pedido-acciones button:active {
+            transform: scale(0.97);
+        }
+
+        .pedido-header strong {
+            font-size: 16px;
+        }
+
+        .pedido-header .precio {
+            font-weight: 600;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a href="dashboard.html" class="header-btn">←</a>
+        <h1 class="header-title">Pedidos</h1>
+        <div class="header-btn"></div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="formulario">
+
+        <!-- Filtros -->
+        <div class="filtros-fecha">
+            <button class="filtro-btn active" data-modo="hoy">Hoy</button>
+            <button class="filtro-btn" data-modo="semana">Semana</button>
+            <button class="filtro-btn" data-modo="mes">Mes</button>
+            <button class="filtro-btn" data-modo="año">Año</button>
+        </div>
+
+        <!-- Lista -->
+        <section class="card">
+            <div id="listaPedidos" class="lista-pedidos"></div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <a href="nuevo-pedido.html" class="footer-btn">🍔</a>
+        <a href="nuevo-gasto.html" class="footer-btn">💵</a>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/global.js"></script>
+    <script src="js/tasas.js"></script>
+    <script src="js/pedidos.js"></script>
+
+</body>
+</html>

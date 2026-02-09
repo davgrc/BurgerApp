@@ -1,0 +1,262 @@
+/* =========================================================
+   INTERFAZ GENERAL — NUEVO PEDIDO + CONTACTOS + PEDIDOS
+   ========================================================= */
+
+
+/* =========================================================
+   ICONO GRANDE DE CONTACTO
+   ========================================================= */
+
+#btnContacto {
+    display: block;
+    margin: 20px auto 0 auto;
+    font-size: 40px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#btnContacto:active {
+    transform: scale(0.92);
+}
+
+
+/* =========================================================
+   INPUT CON ICONO PEQUEÑO
+   ========================================================= */
+
+.input-icono {
+    position: relative;
+}
+
+.input-icono button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   EXTRAS MODERNOS (CHIPS)
+   ========================================================= */
+
+.extra-chip {
+    display: inline-flex;
+    align-items: center;
+    margin: 6px;
+    cursor: pointer;
+}
+
+.extra-chip input {
+    display: none;
+}
+
+.extra-chip span {
+    padding: 10px 14px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    font-size: 14px;
+    border: 1px solid #333;
+    transition: 0.2s ease;
+}
+
+.extra-chip input:checked + span {
+    background: #EB5757;
+    border-color: #EB5757;
+    color: #fff;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SWITCH GUARDAR CONTACTO (ESTILO iOS)
+   ========================================================= */
+
+.switch-row {
+    display: none; /* Oculto hasta que el usuario escriba */
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.switch-row input[type="checkbox"] {
+    appearance: none;
+    width: 46px;
+    height: 24px;
+    background: #555;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.switch-row input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: 0.2s ease;
+}
+
+.switch-row input[type="checkbox"]:checked {
+    background: #27ae60;
+}
+
+.switch-row input[type="checkbox"]:checked::before {
+    transform: translateX(22px);
+}
+
+
+/* =========================================================
+   MODAL DE CONTACTOS
+   ========================================================= */
+
+#modalContactos {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 200;
+}
+
+#modalContactos .contenido {
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 350px;
+}
+
+.contacto-item {
+    padding: 12px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.contacto-item:hover {
+    background: #EB5757;
+}
+
+
+/* =========================================================
+   PEDIDOS — TARJETAS Y BOTONES MODERNOS
+   ========================================================= */
+
+.pedido-item {
+    background: #111;
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid #1a1a1a;
+    margin-bottom: 12px;
+    transition: 0.25s ease;
+}
+
+.pedido-item:hover {
+    transform: scale(1.01);
+}
+
+.pedido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.pedido-acciones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    gap: 8px;
+}
+
+.pedido-acciones button {
+    flex: 1;
+    padding: 10px 0;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.pedido-acciones .btn-ver {
+    background: #444;
+    color: #fff;
+}
+
+.pedido-acciones .btn-ok {
+    background: #27ae60;
+    color: #fff;
+}
+
+.pedido-acciones .btn-del {
+    background: #EB5757;
+    color: #fff;
+}
+
+.pedido-acciones button:active {
+    transform: scale(0.96);
+}
+
+.pedido-detalles {
+    margin-top: 10px;
+    display: none;
+}
+
+.expandido .pedido-detalles {
+    display: block;
+}
+
+/* Botón de eliminar global */
+.btn-del {
+    background-color: #EB5757;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s ease, filter 0.15s ease;
+}
+
+.btn-del:active {
+    transform: scale(0.92);
+    filter: brightness(0.9);
+}
+
+.btn-restore {
+    background-color: #2D9CDB; /* Azul moderno */
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s ease, filter 0.15s ease;
+}
+
+.btn-restore:active {
+    transform: scale(0.92);
+    filter: brightness(0.9);
+}

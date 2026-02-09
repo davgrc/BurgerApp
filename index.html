@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>3 Tesoros Gestión</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- SOLO global + login.css -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        <!-- LOGO -->
+        <div class="logo">🍔</div>
+
+        <!-- NOMBRE DEL NEGOCIO -->
+        <div class="titulo-negocio">3 Tesoros</div>
+        <div class="subtitulo">Gestión App</div>
+
+        <!-- TARJETA DEL LOGIN -->
+        <div class="login-card">
+
+            <label>Usuario</label>
+            <input type="text" id="loginUsuario" placeholder="Nombre de usuario">
+
+            <label>Contraseña</label>
+            <input type="password" id="loginClave" placeholder="Contraseña">
+
+            <div class="botones-login">
+                <button id="btnLogin" class="btn-guardar">Entrar</button>
+                <button id="btnRegistrar" class="btn-secundario">Registrar</button>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- MODAL: REGISTRAR USUARIO -->
+    <div class="modal" id="modalRegistro">
+        <div class="modal-contenido">
+            <h3>Registrar usuario</h3>
+
+            <input type="text" id="registroNombre" placeholder="Nombre de usuario">
+            <input type="password" id="registroClave" placeholder="Contraseña">
+
+            <div class="modal-botones">
+                <button id="registroConfirmar" class="btn-guardar">Crear</button>
+                <button id="registroCancelar" class="btn-cerrar">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/global.js"></script>
+    <script src="js/usuarios.js"></script>
+    <script src="js/login.js"></script>
+
+</body>
+</html>

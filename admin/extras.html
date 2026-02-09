@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Extras - Administración</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/formularios.css">
+    <link rel="stylesheet" href="../css/productos.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="../dashboard.html" class="header-btn">←</a>
+        <h1 class="header-title">Extras</h1>
+        <div class="header-btn"></div>
+    </header>
+
+    <main class="formulario">
+
+        <!-- AGREGAR EXTRA -->
+        <section class="card">
+            <h2 class="card-title">Agregar extra</h2>
+
+            <label>Nombre del extra</label>
+            <input type="text" id="extraNombre" placeholder="Ej: Queso">
+
+            <label>Precio</label>
+            <input type="number" id="extraPrecio" placeholder="Ej: 1">
+
+            <label>Moneda</label>
+            <select id="extraMoneda">
+                <option value="usd">USD</option>
+                <option value="bs">Bs</option>
+                <option value="cop">COP</option>
+            </select>
+
+            <button id="btnAgregarExtra" class="btn-guardar">Agregar</button>
+        </section>
+
+        <!-- LISTA DE EXTRAS -->
+        <section class="card">
+            <h2 class="card-title">Extras registrados</h2>
+            <div id="listaExtras"></div>
+        </section>
+
+        <!-- MODAL EDITAR EXTRA -->
+        <div id="modalEditarExtra" class="modal oculto">
+            <div class="modal-contenido card">
+
+                <h2>Editar extra</h2>
+
+                <label>Nombre</label>
+                <input type="text" id="editExtraNombre">
+
+                <label>Precio</label>
+                <input type="number" id="editExtraPrecio">
+
+                <label>Moneda</label>
+                <select id="editExtraMoneda">
+                    <option value="usd">USD</option>
+                    <option value="bs">Bs</option>
+                    <option value="cop">COP</option>
+                </select>
+
+                <div class="modal-botones">
+                    <button class="btn-guardar" onclick="guardarEdicionExtra()">Guardar cambios</button>
+                    <button class="btn-cerrar" onclick="cerrarModalExtra()">Cancelar</button>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script src="../js/global.js"></script>
+    <script src="../js/admin-extras.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+/* =========================================================
+   ESTILOS PARA PEDIDOS REALIZADOS Y ELIMINADOS
+   ========================================================= */
+
+/* Contenedor principal (igual que pedidos.html) */
+.formulario {
+    padding: 90px 16px 90px 16px;
+}
+
+/* Títulos de sección */
+.formulario h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* Lista de pedidos */
+.lista-pedidos {
+    margin-top: 10px;
+}
+
+/* Tarjetas (ya vienen de pedidos.css, pero aquí afinamos detalles) */
+.pedido-item {
+    background-color: #111111;
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid #1a1a1a;
+}
+
+/* Header de cada tarjeta */
+.pedido-header strong {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Botones */
+.pedido-botones button {
+    background-color: #222222;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+/* Hover suave */
+.pedido-botones button:hover {
+    background-color: #EB5757;
+}
+
+/* Detalles expandibles */
+.pedido-detalles p {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-bottom: 4px;
+}
+
+/* Espaciado entre tarjetas */
+.pedido-item + .pedido-item {
+    margin-top: 12px;
+}
+
+/* Iconos más visibles */
+.pedido-botones button {
+    font-size: 16px;
+}
+
+/* Estado visual para tarjetas eliminadas (opcional) */
+.eliminado {
+    opacity: 0.6;
+}
+
+/* Estado visual para tarjetas realizadas (opcional) */
+.realizado {
+    border-left: 4px solid #27ae60;
+}
+
+/* Estado visual para tarjetas eliminadas (opcional) */
+.papelera {
+    border-left: 4px solid #EB5757;
+}
+
+/* =========================================================
+   FILTROS DE FECHA (HOY / SEMANA / MES / AÑO)
+   ========================================================= */
+
+.filtros-fecha {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 16px;
+    margin-top: 10px;
+}
+
+.filtro-btn {
+    flex: 1;
+    padding: 10px 0;
+
+    background-color: #111111;
+    border: 1px solid #1f1f1f;
+    border-radius: 8px;
+
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+
+    text-align: center;
+    transition: 0.2s ease;
+}
+
+/* Hover suave */
+.filtro-btn:hover {
+    background-color: #222222;
+}
+
+/* Cuando el filtro esté activo */
+.filtro-btn.active {
+    background-color: #EB5757; /* Rojo del logo */
+    border-color: #EB5757;
+    font-weight: 600;
+}

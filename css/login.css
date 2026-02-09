@@ -1,0 +1,78 @@
+/* ============================================
+   LOGIN — ESTILOS AISLADOS
+   ============================================ */
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+
+    display: grid;
+    place-items: center;
+
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.titulo-negocio {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.subtitulo {
+    font-size: 15px;
+    opacity: 0.8;
+    margin-bottom: 25px;
+}
+
+.login-card {
+    background: #111;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.05);
+    text-align: left;
+}
+
+.login-card label {
+    margin-top: 10px;
+    display: block;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    background: #1a1a1a;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+}
+
+.botones-login {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-secundario {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+}

@@ -1,0 +1,127 @@
+/* =========================================================
+   ESTILOS PARA NUEVO GASTO
+   ========================================================= */
+
+/* Grupo inline para select + botón (+) */
+.inline-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Botón verde (+) para agregar categoría/subcategoría */
+.btn-add {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btn-add:active {
+    transform: scale(0.95);
+}
+
+
+
+/* =========================================================
+   MODALES OSCUROS UNIFICADOS
+   ========================================================= */
+
+.modal-categoria,
+.modal-subcategoria {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0,0,0,0.7);
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.modal-categoria .contenido,
+.modal-subcategoria .contenido {
+    background-color: #111111;
+    padding: 20px;
+    width: 85%;
+    border-radius: 12px;
+}
+
+.modal-categoria h3,
+.modal-subcategoria h3 {
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.modal-categoria input,
+.modal-subcategoria input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 14px;
+
+    background-color: #1a1a1a;
+    color: #fff;
+
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+
+
+/* =========================================================
+   BOTONES DEL MODAL
+   ========================================================= */
+
+.btn-guardar {
+    width: 100%;
+    padding: 12px;
+    background-color: #EB5757;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.btn-cancelar {
+    width: 100%;
+    padding: 12px;
+    background-color: #333333;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* =========================================================
+   BOTÓN ELIMINAR PARA TARJETAS DE GASTOS
+   ========================================================= */
+
+.btn-del {
+    background-color: #EB5757;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: transform 0.1s ease, filter 0.15s ease;
+}
+
+.btn-del:active {
+    transform: scale(0.92);
+    filter: brightness(0.9);
+}

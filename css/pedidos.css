@@ -1,0 +1,107 @@
+/* =========================================================
+   ESTILOS DE LISTA DE PEDIDOS
+   ========================================================= */
+
+.pedido-item {
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+.pedido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.pedido-header strong {
+    font-size: 16px;
+}
+
+.pedido-header .precio {
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.pedido-botones button {
+    margin-left: 5px;
+    background: #222;
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.pedido-detalles {
+    margin-top: 10px;
+    display: none;
+}
+
+.expandido .pedido-detalles {
+    display: block;
+}
+
+/* =========================================================
+   BOTONES GRANDES DE ACCIONES
+   ========================================================= */
+
+.pedido-acciones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    gap: 8px;
+}
+
+.pedido-acciones button {
+    flex: 1;
+    padding: 10px 0;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #222;
+    color: #fff;
+}
+
+.pedido-acciones .btn-ver { background-color: #444; }
+.pedido-acciones .btn-ok { background-color: #27ae60; }
+.pedido-acciones .btn-del { background-color: #EB5757; }
+
+.pedido-acciones button:active {
+    transform: scale(0.97);
+}
+
+/* =========================================================
+   CHIPS MINIMALISTAS PARA EXTRAS EN PEDIDOS
+   ========================================================= */
+
+.extra-chip-pedido {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    background-color: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+
+    padding: 4px 8px;
+    margin: 3px;
+
+    min-width: 70px;
+    max-width: 120px;
+
+    line-height: 1.1;
+}
+
+.extra-chip-pedido .nombre {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.extra-chip-pedido .precio {
+    font-size: 11px;
+    opacity: 0.7;
+    margin-top: 2px;
+}

@@ -1,0 +1,87 @@
+/* =========================================================
+   ESTADÍSTICAS — ESTILO VISUAL PREMIUM
+   ========================================================= */
+
+/* Títulos dentro de las tarjetas */
+.subtitulo {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 18px 0 8px 0;
+    opacity: 0.85;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Icono pequeño para subtítulos */
+.subtitulo::before {
+    content: "•";
+    font-size: 18px;
+    color: #888;
+    margin-right: 4px;
+}
+
+
+/* Bloques de contenido */
+.bloque {
+    background: #0d0d0d;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    border: 1px solid #1a1a1a;
+    box-shadow: 0 0 0 1px #000 inset;
+}
+
+
+/* Ítems de estadísticas */
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+
+/* Números */
+.stat-number {
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+
+/* Separadores suaves entre secciones */
+.stat-separator {
+    height: 1px;
+    background: #1a1a1a;
+    margin: 12px 0;
+}
+
+
+/* Iconos para cada tarjeta (solo visual, no funcional) */
+.fold-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Iconos por categoría */
+.fold-card:nth-child(1) h2::before { content: "📊"; }
+.fold-card:nth-child(2) h2::before { content: "🍔"; }
+.fold-card:nth-child(3) h2::before { content: "➕"; }
+.fold-card:nth-child(4) h2::before { content: "👥"; }
+.fold-card:nth-child(5) h2::before { content: "💸"; }
+.fold-card:nth-child(6) h2::before { content: "📂"; }
+.fold-card:nth-child(7) h2::before { content: "🗂️"; }
+.fold-card:nth-child(8) h2::before { content: "💹"; }
+
+
+/* Animación suave al abrir */
+.fold-content {
+    transition: all 0.25s ease;
+    padding-top: 6px;
+}

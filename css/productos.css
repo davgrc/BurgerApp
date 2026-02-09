@@ -1,0 +1,72 @@
+/* =========================================================
+   ESTILOS ESPECÍFICOS PARA ADMIN/PRODUCTOS
+   ========================================================= */
+
+/* Botones Editar / Eliminar lado a lado */
+.btn-row {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-row button {
+    flex: 1;
+}
+
+/* Modal exclusivo de productos */
+#modalEditar {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.7);
+
+    display: flex !important; /* Forzar visible cuando NO tiene .oculto */
+    justify-content: center;
+    align-items: center;
+
+    z-index: 300;
+}
+
+/* Ocultar modal cuando tenga la clase .oculto */
+#modalEditar.oculto {
+    display: none !important;
+}
+
+/* Contenido del modal (productos) */
+.modal-contenido {
+    background-color: #111111;
+    padding: 20px;
+    width: 85%;
+    max-width: 400px;
+    border-radius: 12px;
+}
+
+.modal-contenido h2 {
+    margin-bottom: 12px;
+}
+
+.modal-contenido input,
+.modal-contenido select {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0 12px 0;
+    border-radius: 8px;
+    border: none;
+    background-color: #222222;
+    color: #FFFFFF;
+}
+
+/* Modal exclusivo de extras */
+#modalEditarExtra {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.7);
+
+    display: flex !important; /* ← ESTO ES LO QUE FALTABA */
+    justify-content: center;
+    align-items: center;
+
+    z-index: 300;
+}
+
+#modalEditarExtra.oculto {
+    display: none !important;
+}

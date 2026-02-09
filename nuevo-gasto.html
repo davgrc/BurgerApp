@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Vista móvil -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nuevo Gasto - 3 Tesoros</title>
+
+    <!-- Fuente moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Estilos globales y de formularios -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/formularios.css">
+
+    <!-- Estilos exclusivos de gastos -->
+    <link rel="stylesheet" href="css/gastos.css">
+</head>
+
+<body>
+
+    <!-- ========================================================= -->
+    <!-- HEADER SUPERIOR                                           -->
+    <!-- ========================================================= -->
+    <header class="header">
+        <a href="dashboard.html" class="header-btn">←</a>
+        <h1 class="header-title">Nuevo Gasto</h1>
+        <div class="header-btn"></div>
+    </header>
+
+
+
+    <!-- ========================================================= -->
+    <!-- CONTENIDO PRINCIPAL                                       -->
+    <!-- ========================================================= -->
+    <main class="formulario">
+
+        <!-- ===================================================== -->
+        <!-- TARJETA: DATOS DEL GASTO                              -->
+        <!-- ===================================================== -->
+        <section class="card">
+            <h2 class="card-title">Datos del gasto</h2>
+
+            <!-- Título -->
+            <label>Título</label>
+            <input type="text" id="gastoTitulo" placeholder="Ej: Compra de pan">
+
+            <!-- Categoría -->
+            <label>Categoría</label>
+            <div class="inline-group">
+                <select id="gastoCategoria">
+                    <option value="">Seleccione categoría</option>
+                </select>
+                <button class="btn-add" id="btnAddCategoria">+</button>
+            </div>
+
+            <!-- Subcategoría -->
+            <label>Subcategoría</label>
+            <div class="inline-group">
+                <select id="gastoSubcategoria">
+                    <option value="">Seleccione subcategoría</option>
+                </select>
+                <button class="btn-add" id="btnAddSubcategoria">+</button>
+            </div>
+
+            <!-- Monto -->
+            <label>Monto</label>
+            <input type="number" id="gastoMonto" placeholder="Ej: 10">
+
+            <!-- Moneda -->
+            <label>Moneda</label>
+            <select id="gastoMoneda">
+                <option value="usd">USD</option>
+                <option value="bs">Bs</option>
+                <option value="cop">COP</option>
+            </select>
+        </section>
+
+
+
+        <!-- ===================================================== -->
+        <!-- BOTÓN GUARDAR                                          -->
+        <!-- ===================================================== -->
+        <button id="guardarGasto" class="btn-guardar">Guardar Gasto</button>
+
+    </main>
+
+
+
+    <!-- ========================================================= -->
+    <!-- MODAL: NUEVA CATEGORÍA                                   -->
+    <!-- ========================================================= -->
+    <div id="modalCategoria" class="modal-categoria">
+        <div class="contenido">
+            <h3>Nueva categoría</h3>
+
+            <input type="text" id="nuevaCategoriaNombre" placeholder="Nombre de la categoría">
+
+            <button class="btn-guardar" id="guardarNuevaCategoria">Guardar</button>
+            <button class="btn-cancelar" id="cancelarNuevaCategoria">Cancelar</button>
+        </div>
+    </div>
+
+
+
+    <!-- ========================================================= -->
+    <!-- MODAL: NUEVA SUBCATEGORÍA                                -->
+    <!-- ========================================================= -->
+    <div id="modalSubcategoria" class="modal-subcategoria">
+        <div class="contenido">
+            <h3>Nueva subcategoría</h3>
+
+            <input type="text" id="nuevaSubcategoriaNombre" placeholder="Nombre de la subcategoría">
+
+            <button class="btn-guardar" id="guardarNuevaSubcategoria">Guardar</button>
+            <button class="btn-cancelar" id="cancelarNuevaSubcategoria">Cancelar</button>
+        </div>
+    </div>
+
+
+
+    <!-- Scripts -->
+    <script src="js/global.js"></script>
+    <script src="js/nuevo-gasto.js"></script>
+
+</body>
+</html>

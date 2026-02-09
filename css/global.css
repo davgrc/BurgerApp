@@ -1,0 +1,406 @@
+/* =========================================================
+   CONFIGURACIÓN GLOBAL
+   ========================================================= */
+
+/* Fuente general para toda la app */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Fondo general oscuro */
+body {
+    background-color: #000000;
+    color: #FFFFFF;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Enlaces sin subrayado */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Botones sin estilos por defecto */
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+
+
+/* =========================================================
+   HEADER SUPERIOR
+   ========================================================= */
+
+.header {
+    width: 100%;
+    background-color: #111111;
+    padding: 12px 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+}
+
+.header-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.header-btn {
+    font-size: 22px;
+    padding: 4px 8px;
+}
+
+
+
+/* =========================================================
+   MENÚ LATERAL (SIDE MENU)
+   ========================================================= */
+
+.side-menu {
+    width: 260px;
+    height: 100vh;
+    background-color: #111111;
+
+    position: fixed;
+    top: 0;
+    left: -260px; /* Oculto por defecto */
+    z-index: 100;
+
+    padding-top: 70px; /* Para no tapar el header */
+    transition: left 0.3s ease;
+}
+
+/* Cuando el menú esté abierto, JS le agregará esta clase */
+.side-menu.open {
+    left: 0;
+}
+
+.side-menu-header {
+    padding: 10px 20px;
+    border-bottom: 1px solid #222222;
+}
+
+.side-menu-list {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.side-menu-list li {
+    padding: 12px 20px;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.side-menu-list li a {
+    display: block;
+    font-size: 15px;
+}
+
+.side-menu-section {
+    font-size: 13px;
+    opacity: 0.6;
+    margin-top: 10px;
+}
+
+
+
+/* =========================================================
+   TARJETAS GENERALES
+   ========================================================= */
+
+.card {
+    background-color: #111111;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card-total {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #222222;
+    font-weight: 600;
+}
+
+
+
+/* =========================================================
+   BOTONES GENERALES
+   ========================================================= */
+
+.btn-tasas,
+.btn-guardar,
+.btn-cerrar {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+
+    background-color: #EB5757; /* Rojo del logo */
+    color: #FFFFFF;
+
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.btn-cerrar {
+    background-color: #333333;
+}
+
+
+
+/* =========================================================
+   SELECTOR DE MONEDA
+   ========================================================= */
+
+.selector-moneda {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.selector-opciones {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.moneda-btn {
+    padding: 8px 14px;
+    background-color: #111111;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+
+
+/* =========================================================
+   TARJETA DE GANANCIA
+   ========================================================= */
+
+.card-ganancia {
+    background-color: #111111;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 80px; /* Para no chocar con el footer */
+}
+
+.card-ganancia h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-ganancia p {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+
+
+/* =========================================================
+   FOOTER DE NAVEGACIÓN
+   ========================================================= */
+
+.footer {
+    width: 100%;
+    background-color: #111111;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+}
+
+.footer-btn {
+    font-size: 40px;
+    padding: 20px 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+
+/* =========================================================
+   MODAL (TASAS)
+   ========================================================= */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0,0,0,0.7);
+    display: none; /* Oculto por defecto */
+
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.modal-content {
+    background-color: #111111;
+    padding: 20px;
+    width: 85%;
+    border-radius: 12px;
+}
+
+.modal-content h2 {
+    margin-bottom: 12px;
+}
+
+.modal-content label {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0 12px 0;
+    border-radius: 8px;
+    border: none;
+    background-color: #222222;
+    color: #FFFFFF;
+}
+
+
+
+/* =========================================================
+   UTILIDADES
+   ========================================================= */
+
+.hidden {
+    display: none !important;
+}
+
+.center {
+    text-align: center;
+}
+
+
+/* =========================================================
+   MENÚ ACORDEÓN PROFESIONAL
+   ========================================================= */
+
+.menu-group {
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.menu-title {
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
+}
+
+.menu-title:hover {
+    background-color: #1a1a1a;
+}
+
+.menu-title .arrow {
+    transition: transform 0.25s ease;
+}
+
+.menu-group.open .arrow {
+    transform: rotate(90deg);
+}
+
+.menu-sub {
+    max-height: 0;
+    overflow: hidden;
+    background-color: #0d0d0d;
+    transition: max-height 0.3s ease;
+}
+
+.menu-group.open .menu-sub {
+    max-height: 500px; /* suficiente para expandir */
+}
+
+.menu-sub li a {
+    display: block;
+    padding: 10px 30px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.menu-sub li a:hover {
+    background-color: #1a1a1a;
+    opacity: 1;
+}
+
+
+/* =========================================================
+   TARJETAS PLEGABLES UNIVERSALES (ACORDEÓN)
+   ========================================================= */
+
+.fold-card {
+    background-color: #111111;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.fold-card:hover {
+    background-color: #1a1a1a;
+}
+
+.fold-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fold-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.fold-arrow {
+    transition: transform 0.25s ease;
+    opacity: 0.8;
+}
+
+.fold-card.open .fold-arrow {
+    transform: rotate(90deg);
+}
+
+.fold-content {
+    display: none;
+    margin-top: 12px;
+}
+
+.fold-card.open .fold-content {
+    display: block;
+}

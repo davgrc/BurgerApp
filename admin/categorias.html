@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Vista móvil -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Categorías - Administración</title>
+
+    <!-- Fuente moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Estilos globales y de formularios -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/formularios.css">
+
+    <style>
+        .cat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cat-item span {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .cat-btns button {
+            margin-left: 8px;
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-edit {
+            background: #2196f3;
+            color: white;
+        }
+
+        .btn-delete {
+            background: #ff4d4d;
+            color: white;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 350px;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========================================================= -->
+    <!-- HEADER SUPERIOR                                           -->
+    <!-- ========================================================= -->
+    <header class="header">
+        <a href="../dashboard.html" class="header-btn">←</a>
+        <h1 class="header-title">Categorías</h1>
+        <div class="header-btn"></div>
+    </header>
+
+
+
+    <!-- ========================================================= -->
+    <!-- CONTENIDO PRINCIPAL                                       -->
+    <!-- ========================================================= -->
+    <main class="formulario">
+
+        <!-- ===================================================== -->
+        <!-- FORMULARIO PARA AGREGAR CATEGORÍA                     -->
+        <!-- ===================================================== -->
+        <section class="card">
+            <h2 class="card-title">Agregar categoría</h2>
+
+            <label>Nombre de la categoría</label>
+            <input type="text" id="catNombre" placeholder="Ej: Alimentos">
+
+            <button id="btnAgregarCategoria" class="btn-guardar">Agregar</button>
+        </section>
+
+
+
+        <!-- ===================================================== -->
+        <!-- LISTA DE CATEGORÍAS                                   -->
+        <!-- ===================================================== -->
+        <section class="card">
+            <h2 class="card-title">Categorías registradas</h2>
+
+            <div id="listaCategorias"></div>
+        </section>
+
+    </main>
+
+
+
+    <!-- ========================================================= -->
+    <!-- MODAL PARA EDITAR CATEGORÍA                              -->
+    <!-- ========================================================= -->
+    <div class="modal" id="modalEditar">
+        <div class="modal-content">
+            <h3>Editar categoría</h3>
+            <input type="text" id="editarNombre" placeholder="Nuevo nombre">
+            <button id="btnGuardarEdicion" class="btn-guardar">Guardar</button>
+            <button onclick="document.getElementById('modalEditar').style.display='none'" class="btn-cancelar">Cancelar</button>
+        </div>
+    </div>
+
+
+
+    <!-- Scripts -->
+    <script src="../js/global.js"></script>
+    <script src="../js/admin-categorias.js"></script>
+
+</body>
+</html>

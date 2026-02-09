@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Administrar Productos - 3 Tesoros</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/formularios.css">
+    <link rel="stylesheet" href="../css/productos.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="../dashboard.html" class="header-btn">←</a>
+        <h1 class="header-title">Productos</h1>
+        <div class="header-btn"></div>
+    </header>
+
+    <main class="formulario">
+
+        <!-- SECCIÓN: AGREGAR PRODUCTO -->
+        <section class="card">
+            <h2 class="card-title">Agregar producto</h2>
+
+            <label>Nombre del producto</label>
+            <input type="text" id="prodNombre" placeholder="Ej: Hamburguesa Clásica">
+
+            <label>Precio</label>
+            <input type="number" id="prodPrecio" placeholder="Ej: 5">
+
+            <label>Moneda</label>
+            <select id="prodMoneda">
+                <option value="usd">USD</option>
+                <option value="bs">Bs</option>
+                <option value="cop">COP</option>
+            </select>
+
+            <button id="btnAgregarProducto" class="btn-guardar">Agregar</button>
+        </section>
+
+        <!-- SECCIÓN: LISTA DE PRODUCTOS -->
+        <section class="card">
+            <h2 class="card-title">Productos registrados</h2>
+            <div id="listaProductos"></div>
+        </section>
+
+        <!-- MODAL PARA EDITAR PRODUCTO -->
+        <div id="modalEditar" class="modal oculto">
+            <div class="modal-contenido card">
+                <h2>Editar producto</h2>
+
+                <label>Nombre</label>
+                <input type="text" id="editNombre">
+
+                <label>Precio</label>
+                <input type="number" id="editPrecio">
+
+                <label>Moneda</label>
+                <select id="editMoneda">
+                    <option value="usd">USD</option>
+                    <option value="bs">Bs</option>
+                    <option value="cop">COP</option>
+                </select>
+
+                <button class="btn-guardar" onclick="guardarEdicion()">Guardar cambios</button>
+                <button class="btn-cerrar" onclick="cerrarModal()">Cancelar</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="../js/global.js?v=999"></script>
+    <script src="../js/admin-productos.js?v=999"></script>
+
+</body>
+</html>
