@@ -137,16 +137,22 @@ function alerta(msg) {
     alert(msg);
 }
 
+
+
 /* =========================================================
    10. EXPANDIR / COLAPSAR TARJETAS (ESTADÍSTICAS)
    ========================================================= */
+
 function toggleStat(card) {
     card.classList.toggle("expandido");
 }
 
+
+
 /* =========================================================
-   TARJETAS PLEGABLES UNIVERSALES
+   11. TARJETAS PLEGABLES UNIVERSALES (AJUSTES)
    ========================================================= */
+
 function toggleFold(card) {
     card.classList.toggle("open");
 }

@@ -29,8 +29,8 @@
         <!-- ===================================================== -->
         <!-- TARJETA 1: CONTROL DE TASAS                           -->
         <!-- ===================================================== -->
-        <section class="fold-card" onclick="toggleFold(this)">
-            <div class="fold-header">
+        <section class="fold-card">
+            <div class="fold-header" onclick="toggleFold(this.parentElement)">
                 <h2>Control de tasas</h2>
                 <span class="fold-arrow">›</span>
             </div>
@@ -59,8 +59,8 @@
         <!-- ===================================================== -->
         <!-- TARJETA 2: GESTIÓN DE USUARIOS                        -->
         <!-- ===================================================== -->
-        <section class="fold-card" onclick="toggleFold(this)">
-            <div class="fold-header">
+        <section class="fold-card">
+            <div class="fold-header" onclick="toggleFold(this.parentElement)">
                 <h2>Gestión de usuarios</h2>
                 <span class="fold-arrow">›</span>
             </div>
@@ -81,8 +81,8 @@
         <!-- ===================================================== -->
         <!-- TARJETA 3: RESET DE LA APLICACIÓN                     -->
         <!-- ===================================================== -->
-        <section class="fold-card" onclick="toggleFold(this)">
-            <div class="fold-header">
+        <section class="fold-card">
+            <div class="fold-header" onclick="toggleFold(this.parentElement)">
                 <h2>Resetear aplicación</h2>
                 <span class="fold-arrow">›</span>
             </div>
@@ -106,7 +106,7 @@
 
     <!-- MODAL CREAR -->
     <div class="modal" id="modalCrear">
-        <div class="modal-contenido">
+        <div class="modal-content">
             <h3>Crear usuario</h3>
 
             <input type="text" id="nuevoUsuarioNombre" placeholder="Nombre de usuario">
@@ -123,7 +123,7 @@
 
     <!-- MODAL EDITAR -->
     <div class="modal" id="modalEditar">
-        <div class="modal-contenido">
+        <div class="modal-content">
             <h3>Editar usuario</h3>
 
             <input type="text" id="editarUsuarioNombre" placeholder="Nombre de usuario">
