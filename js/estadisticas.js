@@ -149,9 +149,9 @@ function renderVentasResumen() {
     const s = statsVentasResumen();
     document.getElementById("statsVentasResumen").innerHTML = `
         <div class="bloque">
-            <div class="stat-item"><span>Total USD</span><span class="stat-number">${formatearNumero(s.totalUSD)}</span></div>
-            <div class="stat-item"><span>Total Bs</span><span class="stat-number">${formatearNumero(s.totalBS)}</span></div>
-            <div class="stat-item"><span>Total COP</span><span class="stat-number">${formatearNumero(s.totalCOP)}</span></div>
+            <div class="stat-item"><span>Total USD</span><span class="stat-number">${formatearNumero(s.totalUSD)} USD</span></div>
+            <div class="stat-item"><span>Total Bs</span><span class="stat-number">${formatearNumero(s.totalBS)} Bs</span></div>
+            <div class="stat-item"><span>Total COP</span><span class="stat-number">${formatearNumero(s.totalCOP)} COP</span></div>
             <div class="stat-item"><span>Pedidos realizados</span><span class="stat-number">${s.cantidad}</span></div>
             <div class="stat-item"><span>Promedio por pedido (USD)</span><span class="stat-number">${formatearNumero(s.promedio)}</span></div>
             <div class="stat-item"><span>Última venta</span><span class="stat-number">${s.ultimaFecha}</span></div>
@@ -358,9 +358,9 @@ function renderGastosResumen() {
 
     document.getElementById("statsGastosResumen").innerHTML = `
         <div class="bloque">
-            <div class="stat-item"><span>Total USD</span><span class="stat-number">${formatearNumero(s.totalUSD)}</span></div>
-            <div class="stat-item"><span>Total Bs</span><span class="stat-number">${formatearNumero(s.totalBS)}</span></div>
-            <div class="stat-item"><span>Total COP</span><span class="stat-number">${formatearNumero(s.totalCOP)}</span></div>
+            <div class="stat-item"><span>Total USD</span><span class="stat-number">${formatearNumero(s.totalUSD)} USD</span></div>
+            <div class="stat-item"><span>Total Bs</span><span class="stat-number">${formatearNumero(s.totalBS)} Bs</span></div>
+            <div class="stat-item"><span>Total COP</span><span class="stat-number">${formatearNumero(s.totalCOP)} COP</span></div>
             <div class="stat-item"><span>Más costoso</span><span class="stat-number">${s.masCostoso}</span></div>
             <div class="stat-item"><span>Más recurrente</span><span class="stat-number">${s.masRecurrente}</span></div>
         </div>
@@ -394,7 +394,7 @@ function renderCategoriasGasto() {
     const html = lista.map(c => `
         <div class="stat-item">
             <span>${c.cat}</span>
-            <span class="stat-number">${formatearNumero(c.total)}</span>
+            <span class="stat-number">${formatearNumero(c.total)} USD</span>
         </div>
     `).join("");
 
@@ -430,7 +430,7 @@ function renderSubcategoriasGasto() {
     const html = lista.map(s => `
         <div class="stat-item">
             <span>${s.sub}</span>
-            <span class="stat-number">${formatearNumero(s.total)}</span>
+            <span class="stat-number">${formatearNumero(s.total)} USD</span>
         </div>
     `).join("");
 
@@ -472,9 +472,9 @@ function renderRentabilidad() {
 
     document.getElementById("statsRentabilidad").innerHTML = `
         <div class="bloque">
-            <div class="stat-item"><span>Ingresos USD</span><span class="stat-number">${formatearNumero(s.ingresosUSD)}</span></div>
-            <div class="stat-item"><span>Gastos USD</span><span class="stat-number">${formatearNumero(s.gastosUSD)}</span></div>
-            <div class="stat-item"><span>Ganancia USD</span><span class="stat-number">${formatearNumero(s.ganancia)}</span></div>
+            <div class="stat-item"><span>Ingresos USD</span><span class="stat-number">${formatearNumero(s.ingresosUSD)} USD</span></div>
+            <div class="stat-item"><span>Gastos USD</span><span class="stat-number">${formatearNumero(s.gastosUSD)} USD</span></div>
+            <div class="stat-item"><span>Ganancia USD</span><span class="stat-number">${formatearNumero(s.ganancia)} USD</span></div>
             <div class="stat-item"><span>Margen</span><span class="stat-number">${s.margen.toFixed(1)}%</span></div>
             <div class="stat-item"><span>Estado</span><span class="stat-number">${s.estado}</span></div>
         </div>
