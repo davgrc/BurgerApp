@@ -77,10 +77,24 @@ body {
     font-weight: 600;
 }
 
-.botones-login button {
+/* BOTONES EXCLUSIVOS DEL LOGIN */
+.login-btn {
     width: 100%;
     padding: 12px;
     font-size: 16px;
     font-weight: 600;
     border-radius: 8px;
+    border: none;
+}
+
+/* Botón rojo (Entrar) */
+.login-btn-primario {
+    background-color: #EB5757;
+    color: #fff;
+}
+
+/* Botón gris (Registrar) */
+.login-btn-secundario {
+    background-color: #333;
+    color: #fff;
 }
