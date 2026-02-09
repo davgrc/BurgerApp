@@ -1,6 +1,6 @@
 {
-  "name": "3 Tesoros Gestión",
-  "short_name": "3 Tesoros",
+  "name": "Burger App",
+  "short_name": "Burger App",
   "start_url": "dashboard.html",
   "display": "standalone",
   "background_color": "#000000",
