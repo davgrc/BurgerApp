@@ -304,82 +304,30 @@ button {
 }
 
 
-/* =========================================================
-   MENÚ ACORDEÓN PROFESIONAL
-   ========================================================= */
-
-.menu-group {
-    border-bottom: 1px solid #1a1a1a;
-}
-
-.menu-title {
-    padding: 14px 20px;
-    font-size: 15px;
-    font-weight: 600;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    color: #fff;
-}
-
-.menu-title:hover {
-    background-color: #1a1a1a;
-}
-
-.menu-title .arrow {
-    transition: transform 0.25s ease;
-}
-
-.menu-group.open .arrow {
-    transform: rotate(90deg);
-}
-
-.menu-sub {
-    max-height: 0;
-    overflow: hidden;
-    background-color: #0d0d0d;
-    transition: max-height 0.3s ease;
-}
-
-.menu-group.open .menu-sub {
-    max-height: 500px; /* suficiente para expandir */
-}
-
-.menu-sub li a {
-    display: block;
-    padding: 10px 30px;
-    font-size: 14px;
-    opacity: 0.85;
-}
-
-.menu-sub li a:hover {
-    background-color: #1a1a1a;
-    opacity: 1;
-}
-
 
 /* =========================================================
    TARJETAS PLEGABLES UNIVERSALES (ACORDEÓN)
    ========================================================= */
 
+/* La tarjeta YA NO es clickeable completa */
 .fold-card {
     background-color: #111111;
     border-radius: 10px;
     padding: 16px;
     margin-bottom: 16px;
-    cursor: pointer;
     transition: background 0.25s ease;
 }
 
-.fold-card:hover {
-    background-color: #1a1a1a;
-}
-
+/* SOLO el header es clickeable */
 .fold-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
+}
+
+.fold-header:hover {
+    background-color: #1a1a1a;
 }
 
 .fold-header h2 {
